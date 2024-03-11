@@ -88,6 +88,7 @@ function generateTable() :void {
         section = document.querySelector("tr:last-child");
         for (let key in employees[i]) {
             section!.insertAdjacentHTML("beforeend", `<td> ${employees[i][key]} </td>`);
+            console.log("ciao");
         }
     }
 }
