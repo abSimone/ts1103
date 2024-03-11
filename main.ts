@@ -95,3 +95,27 @@ function generateTable() :void {
 
 generateTable(); 
 
+var tab = document.querySelector("#tab");
+function orderByLastname() :void{
+    tab!.innerHTML = `<table id= "tab" class="table table-primary table-bordered table-striped">
+                                        <tr>
+                            <th> salutation </th>
+                            <th> lastname </th>
+                            <th> firstname </th>
+                            <th> departemnt </th>
+                            <th> salary </th>
+        </tr>
+    </table>
+    `
+    employees.sort;
+    var section : HTMLTableRowElement | null = document.querySelector("tr:last-child");
+    for (let i = 0; i < employees.length; i++) {
+        section!.insertAdjacentHTML("afterend", `<tr></tr>`);
+        section = document.querySelector("tr:last-child");
+        for (let key in employees[i]) {
+            section!.insertAdjacentHTML("beforeend", `<td> ${employees[i][key]} </td>`);
+        }
+    }
+}
+
+orderByLastname();
