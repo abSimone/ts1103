@@ -1,5 +1,87 @@
-"use strict";
-console.log("Dettaglio 389463726498");
-console.log("Dettaglio 110390");
-console.log("lavoro da A001");
-console.log("ajsidQG89");
+const employees = [
+    {
+        "salutation": "Mr.",
+        "lastname": "Lee",
+        "firstname": "John",
+        "department": "Sales",
+        "salary": 50000
+    },
+    {
+        "salutation": "Ms.",
+        "lastname": "Johnson",
+        "firstname": "Emily",
+        "department": "Marketing",
+        "salary": 60000
+    },
+    {
+        "salutation": "Dr.",
+        "lastname": "Lee",
+        "firstname": "David",
+        "department": "Research",
+        "salary": 70000
+    },
+    {
+        "salutation": "Mrs.",
+        "lastname": "Brown",
+        "firstname": "Susan",
+        "department": "Human Resources",
+        "salary": 55000
+    },
+    {
+        "salutation": "Mr.",
+        "lastname": "Garcia",
+        "firstname": "Jose",
+        "department": "Finance",
+        "salary": 65000
+    },
+    {
+        "salutation": "Ms.",
+        "lastname": "Martinez",
+        "firstname": "Maria",
+        "department": "Customer Service",
+        "salary": 48000
+    },
+    {
+        "salutation": "Dr.",
+        "lastname": "Wang",
+        "firstname": "Linda",
+        "department": "Engineering",
+        "salary": 75000
+    },
+    {
+        "salutation": "Mr.",
+        "lastname": "Kumar",
+        "firstname": "Raj",
+        "department": "IT",
+        "salary": 72000
+    },
+    {
+        "salutation": "Ms.",
+        "lastname": "White",
+        "firstname": "Jennifer",
+        "department": "Public Relations",
+        "salary": 58000
+    },
+    {
+        "salutation": "Mr.",
+        "lastname": "Nguyen",
+        "firstname": "Michael",
+        "department": "Operations",
+        "salary": 60000
+    }
+];
+
+function generateTable() {
+    var section = document.querySelector("tr:last-child");
+
+    for (let i = 0; i < employees.length; i++) {
+        section.insertAdjacentHTML("afterend", `<tr></tr>`);
+        // section.insertAdjacentHTML("afterend", ``);
+        section = document.querySelector("tr:last-child");
+        for (let k in employees[i]) {
+            section.insertAdjacentHTML("beforeend", `<td> ${employees[i][k]} </td>`);
+        }
+    }
+}
+
+generateTable();
