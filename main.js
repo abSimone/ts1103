@@ -1,10 +1,11 @@
+"use strict";
 const employees = [
     {
-        "salutation": "Mr.",
-        "lastname": "Lee",
-        "firstname": "John",
-        "department": "Sales",
-        "salary": 50000
+        salutation: "Mr.",
+        lastname: "Lee",
+        firstname: "John",
+        department: "Sales",
+        salary: 50000
     },
     {
         "salutation": "Ms.",
@@ -70,18 +71,14 @@ const employees = [
         "salary": 60000
     }
 ];
-
 function generateTable() {
     var section = document.querySelector("tr:last-child");
-
     for (let i = 0; i < employees.length; i++) {
         section.insertAdjacentHTML("afterend", `<tr></tr>`);
-        // section.insertAdjacentHTML("afterend", ``);
         section = document.querySelector("tr:last-child");
-        for (let k in employees[i]) {
-            section.insertAdjacentHTML("beforeend", `<td> ${employees[i][k]} </td>`);
+        for (let key in employees[i]) {
+            section.insertAdjacentHTML("beforeend", `<td> ${employees[i][key]} </td>`);
         }
     }
 }
-
 generateTable();
