@@ -81,33 +81,39 @@ const employees : Employee[] = [
 ];
 
 function generateTable() :void {
-    var section : HTMLTableRowElement | null = document.querySelector("tr:last-child");
+    var section : HTMLTableRowElement | null = document.querySelector("#tab");
 
     for (let i = 0; i < employees.length; i++) {
-        section!.insertAdjacentHTML("afterend", `<tr></tr>`);
+        section!.insertAdjacentHTML("afterend", `<tr class="generate"></tr>`);
         section = document.querySelector("tr:last-child");
         for (let key in employees[i]) {
             section!.insertAdjacentHTML("beforeend", `<td> ${employees[i][key]} </td>`);
-            console.log("ciao");
         }
     }
 }
 
 generateTable(); 
 
+function compareByLastName(a: Employee, b: Employee): number {
+    const lastNameA = a.lastname.toUpperCase();
+    const lastNameB = b.lastname.toUpperCase();
+
+    if (lastNameA < lastNameB) {
+        return -1;
+    }
+    if (lastNameA > lastNameB) {
+        return 1;
+    }
+    return 0;
+}
+
 var tab = document.querySelector("#tab");
 function orderByLastname() :void{
-    tab!.innerHTML = `<table id= "tab" class="table table-primary table-bordered table-striped">
-                                        <tr>
-                            <th> salutation </th>
-                            <th> lastname </th>
-                            <th> firstname </th>
-                            <th> departemnt </th>
-                            <th> salary </th>
-        </tr>
-    </table>
-    `
-    employees.sort;
+    const elementoDaRimuovere = document.querySelectorAll("generate");
+    elementiDaRimuovere.forEach((elemento) => {
+        elemento.remove();
+    });
+    employees.sort(compareByLastName);
     var section : HTMLTableRowElement | null = document.querySelector("tr:last-child");
     for (let i = 0; i < employees.length; i++) {
         section!.insertAdjacentHTML("afterend", `<tr></tr>`);
@@ -118,4 +124,7 @@ function orderByLastname() :void{
     }
 }
 
-orderByLastname();
+const button = document.querySelector('#lastname');
+button!.addEventListener('click', orderByLastname);
+
+// orderByLastname();
