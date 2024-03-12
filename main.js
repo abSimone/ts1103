@@ -95,14 +95,14 @@ function compareByLastName(a, b) {
 }
 var tab = document.querySelector("#tab");
 function orderByLastname() {
-    const elementoDaRimuovere = document.querySelectorAll("generate");
+    const elementiDaRimuovere = document.querySelectorAll(".generate");
     elementiDaRimuovere.forEach((elemento) => {
         elemento.remove();
     });
     employees.sort(compareByLastName);
     var section = document.querySelector("tr:last-child");
     for (let i = 0; i < employees.length; i++) {
-        section.insertAdjacentHTML("afterend", `<tr></tr>`);
+        section.insertAdjacentHTML("afterend", `<tr class="generate"></tr>`);
         section = document.querySelector("tr:last-child");
         for (let key in employees[i]) {
             section.insertAdjacentHTML("beforeend", `<td> ${employees[i][key]} </td>`);

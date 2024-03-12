@@ -109,14 +109,14 @@ function compareByLastName(a: Employee, b: Employee): number {
 
 var tab = document.querySelector("#tab");
 function orderByLastname() :void{
-    const elementoDaRimuovere = document.querySelectorAll("generate");
-    elementiDaRimuovere.forEach((elemento) => {
+    const elementiDaRimuovere : any = document.querySelectorAll(".generate");
+    elementiDaRimuovere.forEach((elemento : Element) => {
         elemento.remove();
     });
     employees.sort(compareByLastName);
     var section : HTMLTableRowElement | null = document.querySelector("tr:last-child");
     for (let i = 0; i < employees.length; i++) {
-        section!.insertAdjacentHTML("afterend", `<tr></tr>`);
+        section!.insertAdjacentHTML("afterend", `<tr class="generate"></tr>`);
         section = document.querySelector("tr:last-child");
         for (let key in employees[i]) {
             section!.insertAdjacentHTML("beforeend", `<td> ${employees[i][key]} </td>`);
